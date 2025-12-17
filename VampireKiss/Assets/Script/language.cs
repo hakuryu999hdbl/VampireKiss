@@ -7,7 +7,7 @@ public class language : MonoBehaviour
 {
 
     Image image;
-    public Sprite J, C_1;
+    public Sprite J, C_1,E;
     public void OnEnable()
     {
         image = GetComponent<Image>();
@@ -22,7 +22,9 @@ public class language : MonoBehaviour
             case 1:
                 image.sprite = C_1;//简中
                 break;
-      
+            case 2:
+                image.sprite = E;//英
+                break;
         }
 
     

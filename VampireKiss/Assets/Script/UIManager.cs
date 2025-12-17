@@ -17,17 +17,9 @@ public class UIManager : MonoBehaviour
     void Start()
     {
 
-        Debug.Log("目前储存的语言" + PlayerPrefs.GetInt("language"));//0日语 1简体中文
+        Debug.Log("目前储存的语言" + PlayerPrefs.GetInt("language"));//0日语 1简体中文  2英语
 
-        if (PlayerPrefs.GetInt("language") == 0)
-        {
-            Language_J.SetActive(true);
-        }
-        else
-        {
-            Language_C1.SetActive(true);
-        }
-
+      
 
 
 
@@ -87,7 +79,7 @@ public class UIManager : MonoBehaviour
     [Header("打开界面")]
     public GameObject Button_All;
     public GameObject Setting_Menu;
-    public void OpenSetting() 
+    public void OpenSetting()
     {
         Button_All.SetActive(false);
         Setting_Menu.SetActive(true);
@@ -98,21 +90,14 @@ public class UIManager : MonoBehaviour
         Setting_Menu.SetActive(false);
     }
 
-    public void SettingLanguage() 
+    public void SettingLanguage(int Number)
     {
-        if (PlayerPrefs.GetInt("language")==0) 
-        {
-            PlayerPrefs.SetInt("language", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("language", 0);
-        }
+        PlayerPrefs.SetInt("language", Number);
+
 
         LoadingScene_MenuScene();
     }
 
-    public GameObject Language_J, Language_C1;
 
     #endregion
 
@@ -133,9 +118,9 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void ChooseVideo(int Number) 
+    public void ChooseVideo(int Number)
     {
-        switch (Number) 
+        switch (Number)
         {
             case 1:
                 GameFlowData.nextVideoId = "1";
@@ -200,7 +185,7 @@ public class UIManager : MonoBehaviour
             case 3:
                 Application.OpenURL("https://x.com/Detective_ye");
                 break;
-          
+
         }
     }
 
